@@ -1,6 +1,5 @@
 package org.techtown.ideup;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 
 public class UserComplainAdapter extends RecyclerView.Adapter<UserComplainAdapter.ViewHolder> {
 
-    onUserComplainClickListener listener;
+    OnUserComplainClickListener listener;
     ArrayList<UserComplain> complains = new ArrayList<>();
 
     @NonNull
@@ -55,7 +54,7 @@ public class UserComplainAdapter extends RecyclerView.Adapter<UserComplainAdapte
         complains.set(position, complain);
     }
 
-    public void setOnItemClickListener(onUserComplainClickListener listener){ //아이템뷰에 onClickListener 설정하기
+    public void setOnItemClickListener(OnUserComplainClickListener listener){ //아이템뷰에 onClickListener 설정하기
         this.listener=listener;
     }
 
@@ -64,7 +63,7 @@ public class UserComplainAdapter extends RecyclerView.Adapter<UserComplainAdapte
         private TextView textView;
         private Button likeBT;
         private Button replyBT;
-        public ViewHolder(final View itemView, final onUserComplainClickListener listener) {
+        public ViewHolder(final View itemView, final OnUserComplainClickListener listener) {
             super(itemView);
 
             textView = itemView.findViewById(R.id.complainText);
