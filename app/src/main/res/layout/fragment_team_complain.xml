@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".TeamComplainFragment">
+
+    <!--    <SearchView-->
+    <!--        android:id="@+id/searchForm"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="#FFF"-->
+    <!--        android:inputType="text" />-->
+
+    <EditText
+        android:id="@+id/search_hashtag"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/r20"
+        android:hint="해시태그 검색"
+        android:inputType="textShortMessage"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
+        android:textSize="16sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_gravity="right"
+                android:background="#F3F3F3"
+                android:padding="4dp"
+                android:text="공감순으로 정렬하기"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/teamComplainRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

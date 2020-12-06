@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,10 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.techtown.ideup.R;
 
 public class UserComplainFragment extends Fragment {
+    private EditText searchHashTag;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_user_complain, container, false);
+
+        searchHashTag = rootView.findViewById(R.id.search_hashtag);
+
+
         RecyclerView recyclerView = rootView.findViewById(R.id.userComplainRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
         // vertical linearLayout 설정
