@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private UserComplainFragment userComplainFragment = new UserComplainFragment();
     private TeamComplainFragment teamComplainFragment = new TeamComplainFragment();
+    private UserComplainRegisterFragment userComplainRegisterFragment = new UserComplainRegisterFragment();
+
     private infoTeamActivity infoTeamActivity = new infoTeamActivity();
 
     @Override
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         Button companyInfoBT = findViewById(R.id.companyInfoBT);
         Button userComplainBT = findViewById(R.id.userComplainBT);
         Button teamComplainBT = findViewById(R.id.teamComplainBT);
+
+        // 네비게이션바 버튼 클릭시
 
         companyInfoBT.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +52,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    public void setFragment(String fragment){ // 프래그먼트 replace
+
+        if(fragment.equals("userComplain")){ // 소비자문의리스트 프래그먼트
+            fragmentManager.beginTransaction().replace(R.id.frameLayout, userComplainFragment).commit();
+        }
+        else if(fragment.equals("teamComplain")){ // 창업팀에서 보는 소비자문의리스트 프래그먼트
+            fragmentManager.beginTransaction().replace(R.id.frameLayout, teamComplainFragment).commit();
+        }
+        else if(fragment.equals("userComplainRegister")){ // 소비자문의 등록 프래그먼트
+            fragmentManager.beginTransaction().replace(R.id.frameLayout,userComplainRegisterFragment).commit();
+        }
 
     }
 }
