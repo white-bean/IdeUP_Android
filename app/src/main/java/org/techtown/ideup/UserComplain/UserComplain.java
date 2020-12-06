@@ -1,4 +1,4 @@
-package org.techtown.ideup;
+package org.techtown.ideup.UserComplain;
 
 public class UserComplain {
     private String complain;

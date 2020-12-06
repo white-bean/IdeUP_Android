@@ -1,4 +1,4 @@
-package org.techtown.ideup;
+package org.techtown.ideup.InfoTeam;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.techtown.ideup.R;
+
 public class infoTeamActivity extends AppCompatActivity {
     private RecyclerView mate_RV, post_RV;
     private mateAdapter mateAdapter;
@@ -17,7 +19,7 @@ public class infoTeamActivity extends AppCompatActivity {
 
     private ImageView team_iV;
     private TextView tname_tV, tinfo_tV;
-    private Button mate_btn;
+    private Button mate_btn, send_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +35,21 @@ public class infoTeamActivity extends AppCompatActivity {
         tname_tV = findViewById(R.id.tname_tV);
         tinfo_tV = findViewById(R.id.tinfo_tV);
         mate_btn = findViewById(R.id.mate_btn);
+        send_btn = findViewById(R.id.send_btn);
+
         mate_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // See All Mates 눌렀을 때, 팀맺음 한 모든 사용자 보기
             }
         });
+
+        send_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 의견보내기 눌렀을 때때
+            }
+       });
     }
     private void setRecyclerview(){
         mate_RV = findViewById(R.id.mate_RV);

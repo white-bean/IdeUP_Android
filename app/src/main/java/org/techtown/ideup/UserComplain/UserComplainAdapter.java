@@ -1,4 +1,4 @@
-package org.techtown.ideup;
+package org.techtown.ideup.UserComplain;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.techtown.ideup.R;
 
 import java.util.ArrayList;
 

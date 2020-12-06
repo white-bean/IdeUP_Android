@@ -8,8 +8,10 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
-import org.techtown.ideup.R;
-import org.techtown.ideup.UserComplainFragment;
+import org.techtown.ideup.InfoTeam.infoTeamActivity;
+import org.techtown.ideup.TeamComplain.TeamComplainFragment;
+import org.techtown.ideup.UserComplain.UserComplainFragment;
+import org.techtown.ideup.UserComplain.UserComplainRegisterFragment;
 
 public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager = getSupportFragmentManager();
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private TeamComplainFragment teamComplainFragment = new TeamComplainFragment();
     private UserComplainRegisterFragment userComplainRegisterFragment = new UserComplainRegisterFragment();
 
-    private infoTeamActivity infoTeamActivity = new infoTeamActivity();
+    private org.techtown.ideup.InfoTeam.infoTeamActivity infoTeamActivity = new infoTeamActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

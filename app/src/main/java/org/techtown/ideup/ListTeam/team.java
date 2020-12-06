@@ -1,4 +1,4 @@
-package org.techtown.ideup;
+package org.techtown.ideup.ListTeam;
 
 public class team {
     String name, info;

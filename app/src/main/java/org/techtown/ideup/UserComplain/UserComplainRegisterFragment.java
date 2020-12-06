@@ -1,4 +1,4 @@
-package org.techtown.ideup;
+package org.techtown.ideup.UserComplain;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import org.techtown.ideup.R;
 
 public class UserComplainRegisterFragment extends Fragment {
     @Nullable

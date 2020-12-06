@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".infoTeamActivity">
+    tools:context=".InfoTeam.infoTeamActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -123,7 +123,8 @@
                 android:background="#1D710C"
                 android:text="의견 보내기"
                 android:textColor="@android:color/white"
-                android:textSize="10sp" />
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -152,7 +153,7 @@
                 android:background="#1D710C"
                 android:text="See All Mates"
                 android:textColor="@android:color/white"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textView7"

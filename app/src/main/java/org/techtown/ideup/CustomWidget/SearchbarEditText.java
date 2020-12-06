@@ -1,4 +1,4 @@
-package org.techtown.ideup;
+package org.techtown.ideup.CustomWidget;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -17,6 +17,8 @@ import android.widget.TextView;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
+
+import org.techtown.ideup.R;
 
 public class SearchbarEditText extends AppCompatEditText implements TextWatcher, View.OnTouchListener, View.OnFocusChangeListener {
 

@@ -1,6 +1,5 @@
-package org.techtown.ideup;
+package org.techtown.ideup.ListTeam;
 
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +9,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.techtown.ideup.R;
+
 import java.util.ArrayList;
 
-public class teamAdapter extends RecyclerView.Adapter<teamAdapter.ViewHolder>{
+public class teamAdapter extends RecyclerView.Adapter<teamAdapter.ViewHolder> implements OnTeamItemClickListener{
     ArrayList<team> items = new ArrayList<team>();
+    OnTeamItemClickListener listener;
 
     @NonNull
     @Override
@@ -43,6 +45,17 @@ public class teamAdapter extends RecyclerView.Adapter<teamAdapter.ViewHolder>{
 
     public team getItem(int position){
         return items.get(position);
+    }
+
+    public void setOnItemClickListener(OnTeamItemClickListener listener){
+        this.listener = listener;
+    }
+
+    @Override
+    public void onItemClick(ViewHolder holder, View view, int position) {
+        if (listener != null){
+            listener.onItemClick(holder, view, position);
+        }
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{

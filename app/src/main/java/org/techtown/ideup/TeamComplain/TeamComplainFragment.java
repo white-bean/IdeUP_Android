@@ -1,4 +1,4 @@
-package org.techtown.ideup;
+package org.techtown.ideup.TeamComplain;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.techtown.ideup.R;
 
 public class TeamComplainFragment extends Fragment {
 

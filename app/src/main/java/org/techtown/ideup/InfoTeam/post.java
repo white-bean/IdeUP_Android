@@ -1,4 +1,4 @@
-package org.techtown.ideup;
+package org.techtown.ideup.InfoTeam;
 
 public class post {
     String subject, content;

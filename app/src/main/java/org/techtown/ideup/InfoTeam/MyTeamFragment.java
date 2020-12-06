@@ -1,4 +1,4 @@
-package org.techtown.ideup;
+package org.techtown.ideup.InfoTeam;
 
 import android.os.Bundle;
 
@@ -13,10 +13,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.techtown.ideup.InfoTeam.mate;
+import org.techtown.ideup.InfoTeam.mateAdapter;
+import org.techtown.ideup.InfoTeam.post;
+import org.techtown.ideup.InfoTeam.postAdapter;
+import org.techtown.ideup.R;
+
 public class MyTeamFragment extends Fragment {
     private RecyclerView mate_RV, post_RV;
-    private mateAdapter mateAdapter;
-    private postAdapter postAdapter;
+    private org.techtown.ideup.InfoTeam.mateAdapter mateAdapter;
+    private org.techtown.ideup.InfoTeam.postAdapter postAdapter;
 
     private ImageView team_iV;
     private TextView tname_tV, tinfo_tV;

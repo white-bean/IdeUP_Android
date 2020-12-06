@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".ListTeamFragment" >
+    tools:context=".ListTeam.ListTeamFragment" >
 
-    <org.techtown.ideup.SearchbarEditText
+    <org.techtown.ideup.CustomWidget.SearchbarEditText
         android:id="@+id/search_edit"
         android:layout_width="match_parent"
         android:layout_height="40dp"

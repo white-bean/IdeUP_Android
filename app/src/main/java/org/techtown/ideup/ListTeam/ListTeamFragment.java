@@ -1,7 +1,6 @@
-package org.techtown.ideup;
+package org.techtown.ideup.ListTeam;
 
-import android.content.Context;
-import android.graphics.Rect;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,11 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import org.techtown.ideup.InfoTeam.infoTeamActivity;
+import org.techtown.ideup.R;
 
 
 public class ListTeamFragment extends Fragment {
@@ -31,6 +32,15 @@ public class ListTeamFragment extends Fragment {
         init(rootView);
         setRecyclerview(rootView);
         addDummy();
+        teamAdapter.setOnItemClickListener(new OnTeamItemClickListener() {
+            @Override
+            public void onItemClick(teamAdapter.ViewHolder holder, View view, int position) {
+                team item = teamAdapter.getItem(position);
+                Toast.makeText(getContext(), "아이템 선택됨: "+item.getName(), Toast.LENGTH_LONG).show();  //그냥 클릭했을 때 잘 되는지 확인용..
+                Intent intent = new Intent(getActivity(), infoTeamActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return rootView;
     }
