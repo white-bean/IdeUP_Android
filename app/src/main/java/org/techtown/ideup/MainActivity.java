@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import org.techtown.ideup.InfoTeam.infoTeamActivity;
+import org.techtown.ideup.ProjectList.ProjectListFragment;
 import org.techtown.ideup.TeamComplain.TeamComplainFragment;
 import org.techtown.ideup.UserComplain.UserComplainFragment;
 import org.techtown.ideup.UserComplain.UserComplainRegisterFragment;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private UserComplainFragment userComplainFragment = new UserComplainFragment();
     private TeamComplainFragment teamComplainFragment = new TeamComplainFragment();
     private UserComplainRegisterFragment userComplainRegisterFragment = new UserComplainRegisterFragment();
+    private ProjectListFragment projectListFragment = new ProjectListFragment();
 
     private org.techtown.ideup.InfoTeam.infoTeamActivity infoTeamActivity = new infoTeamActivity();
 
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         Button companyInfoBT = findViewById(R.id.companyInfoBT);
         Button userComplainBT = findViewById(R.id.userComplainBT);
         Button teamComplainBT = findViewById(R.id.teamComplainBT);
+        Button projectListBT = findViewById(R.id.projectListBT);
+
 
         // 네비게이션바 버튼 클릭시
 
@@ -54,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        projectListBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragmentManager.beginTransaction().replace(R.id.frameLayout, projectListFragment).commitAllowingStateLoss(); // UserComplainFragment 띄우기
+            }
+        });
+
 
     }
 
@@ -67,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(fragment.equals("userComplainRegister")){ // 소비자문의 등록 프래그먼트
             fragmentManager.beginTransaction().replace(R.id.frameLayout,userComplainRegisterFragment).commit();
+        }
+        else if(fragment.equals("projectList")){ // 소비자문의 등록 프래그먼트
+            fragmentManager.beginTransaction().replace(R.id.frameLayout,projectListFragment).commit();
         }
 
     }

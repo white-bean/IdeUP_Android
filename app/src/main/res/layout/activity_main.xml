@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="창업가정보보기" />
+            android:text="창업가정보" />
 
         <Button
             android:id="@+id/userComplainBT"
@@ -39,7 +39,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="창업팀이 보는 문의" />
+            android:text="창업팀이보는문의" />
+
+        <Button
+            android:id="@+id/projectListBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="프로젝트보기" />
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
