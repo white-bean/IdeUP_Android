@@ -8,7 +8,9 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import org.techtown.ideup.InfoTeam.MyTeamFragment;
 import org.techtown.ideup.InfoTeam.infoTeamActivity;
+import org.techtown.ideup.ListTeam.ListTeamFragment;
 import org.techtown.ideup.ProjectList.ProjectListFragment;
 import org.techtown.ideup.TeamComplain.TeamComplainFragment;
 import org.techtown.ideup.UserComplain.UserComplainFragment;
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private TeamComplainFragment teamComplainFragment = new TeamComplainFragment();
     private UserComplainRegisterFragment userComplainRegisterFragment = new UserComplainRegisterFragment();
     private ProjectListFragment projectListFragment = new ProjectListFragment();
+    private ListTeamFragment listTeamFragment = new ListTeamFragment();
+    private MyTeamFragment myTeamFragment = new MyTeamFragment();
 
     private org.techtown.ideup.InfoTeam.infoTeamActivity infoTeamActivity = new infoTeamActivity();
 
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Button userComplainBT = findViewById(R.id.userComplainBT);
         Button teamComplainBT = findViewById(R.id.teamComplainBT);
         Button projectListBT = findViewById(R.id.projectListBT);
+        Button teamListBT = findViewById(R.id.teamListBT);
 
 
         // 네비게이션바 버튼 클릭시
@@ -39,8 +44,9 @@ public class MainActivity extends AppCompatActivity {
         companyInfoBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),infoTeamActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(getApplicationContext(),infoTeamActivity.class);
+                //startActivity(intent);
+                fragmentManager.beginTransaction().replace(R.id.frameLayout, myTeamFragment).commitAllowingStateLoss();
             }
         });
 
@@ -65,7 +71,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        teamListBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragmentManager.beginTransaction().replace(R.id.frameLayout, listTeamFragment).commitAllowingStateLoss();
+            }
+        });
     }
 
     public void setFragment(String fragment){ // 프래그먼트 replace
@@ -81,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(fragment.equals("projectList")){ // 소비자문의 등록 프래그먼트
             fragmentManager.beginTransaction().replace(R.id.frameLayout,projectListFragment).commit();
+        }
+        else if(fragment.equals("listteam")){
+            fragmentManager.beginTransaction().replace(R.id.frameLayout, listTeamFragment).commit();
         }
 
     }

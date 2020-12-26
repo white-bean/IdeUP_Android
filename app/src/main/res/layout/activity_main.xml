@@ -47,6 +47,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="프로젝트보기" />
+        <Button
+            android:id="@+id/teamListBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="창업팀보기" />
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
