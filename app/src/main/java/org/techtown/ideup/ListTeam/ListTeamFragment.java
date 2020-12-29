@@ -32,15 +32,6 @@ public class ListTeamFragment extends Fragment {
         init(rootView);
         setRecyclerview(rootView);
         addDummy();
-        teamAdapter.setOnItemClickListener(new OnTeamItemClickListener() {
-            @Override
-            public void onItemClick(teamAdapter.ViewHolder holder, View view, int position) {
-                team item = teamAdapter.getItem(position);
-                Toast.makeText(getContext(), "아이템 선택됨: "+item.getName(), Toast.LENGTH_LONG).show();  //그냥 클릭했을 때 잘 되는지 확인용..
-                Intent intent = new Intent(getActivity(), infoTeamActivity.class);
-                startActivity(intent);
-            }
-        });
 
         return rootView;
     }
