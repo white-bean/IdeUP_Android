@@ -1,64 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/frameLayout"
+
+    <FrameLayout
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
-        android:layout_height="556dp">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="?attr/actionBarSize"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
 
-        <Button
-            android:id="@+id/companyInfoBT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="창업가정보" />
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/cardview_light_background"
+        app:itemBackground="@android:color/holo_blue_dark"
 
-        <Button
-            android:id="@+id/userComplainBT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="소비자문의" />
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_navigation_menu" />
 
-        <Button
-            android:id="@+id/teamComplainBT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="창업팀이보는문의" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-        <Button
-            android:id="@+id/projectListBT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="프로젝트보기" />
-        <Button
-            android:id="@+id/teamListBT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="창업팀보기" />
-    </LinearLayout>
-
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-
-    </com.google.android.material.navigation.NavigationView>
-
-</LinearLayout>
