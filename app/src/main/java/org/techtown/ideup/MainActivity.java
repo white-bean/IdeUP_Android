@@ -1,10 +1,13 @@
 package org.techtown.ideup;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,28 +34,60 @@ public class MainActivity extends AppCompatActivity {
 
 //    private org.techtown.ideup.InfoTeam.infoTeamActivity infoTeamActivity = new infoTeamActivity();
 
+    private String state="";
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == Activity.RESULT_OK){
+            state = data.getStringExtra("UserState");
+            if( state.equals("user")){
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, userComplainFragment).commitAllowingStateLoss();
+            }
+            else {
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, teamComplainFragment).commitAllowingStateLoss();
+            }
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent1 = new Intent (this, LoginActivity.class);
+        startActivityForResult(intent1, 0);
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-        fragmentManager.beginTransaction().replace(R.id.main_layout, myTeamFragment).commitAllowingStateLoss();
+        if( state.equals("user")){
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, userComplainFragment).commitAllowingStateLoss();
+        }
+        else {
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, teamComplainFragment).commitAllowingStateLoss();
+        }
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.tab1: {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, userComplainFragment).commitAllowingStateLoss();
-         // if 창업가  getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, teamComplainFragment).commitAllowingStateLoss();
+                        if(state.equals("user")){
+                            getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, userComplainFragment).commitAllowingStateLoss();
+                        }
+                        else {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, teamComplainFragment).commitAllowingStateLoss();
+                        }
                         return true;
                     }
                     case R.id.tab2: {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, listTeamFragment).commitAllowingStateLoss();
-
-//if 창업가               getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, myTeamFragment).commitAllowingStateLoss();
-
+                        if(state.equals("user")) {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, listTeamFragment).commitAllowingStateLoss();
+                        }
+                        else {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, myTeamFragment).commitAllowingStateLoss();
+                        }
                         return true;
                     }
                     case R.id.tab3: {
@@ -90,71 +125,3 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-        /*
-        Button companyInfoBT = findViewById(R.id.companyInfoBT);
-        Button userComplainBT = findViewById(R.id.userComplainBT);
-        Button teamComplainBT = findViewById(R.id.teamComplainBT);
-        Button projectListBT = findViewById(R.id.projectListBT);
-        Button teamListBT = findViewById(R.id.teamListBT);
-
-
-        // 네비게이션바 버튼 클릭시
-
-        companyInfoBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent intent = new Intent(getApplicationContext(),infoTeamActivity.class);
-                //startActivity(intent);
-                fragmentManager.beginTransaction().replace(R.id.frameLayout, myTeamFragment).commitAllowingStateLoss();
-            }
-        });
-
-        userComplainBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragmentManager.beginTransaction().replace(R.id.frameLayout, userComplainFragment).commitAllowingStateLoss(); // UserComplainFragment 띄우기
-            }
-        });
-
-        teamComplainBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragmentManager.beginTransaction().replace(R.id.frameLayout, teamComplainFragment).commitAllowingStateLoss(); // UserComplainFragment 띄우기
-            }
-        });
-
-        projectListBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragmentManager.beginTransaction().replace(R.id.frameLayout, projectListFragment).commitAllowingStateLoss(); // UserComplainFragment 띄우기
-            }
-        });
-
-        teamListBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragmentManager.beginTransaction().replace(R.id.frameLayout, listTeamFragment).commitAllowingStateLoss();
-            }
-        });
-    }
-
-    public void setFragment(String fragment){ // 프래그먼트 replace
-
-        if(fragment.equals("userComplain")){ // 소비자문의리스트 프래그먼트
-            fragmentManager.beginTransaction().replace(R.id.frameLayout, userComplainFragment).commit();
-        }
-        else if(fragment.equals("teamComplain")){ // 창업팀에서 보는 소비자문의리스트 프래그먼트
-            fragmentManager.beginTransaction().replace(R.id.frameLayout, teamComplainFragment).commit();
-        }
-        else if(fragment.equals("userComplainRegister")){ // 소비자문의 등록 프래그먼트
-            fragmentManager.beginTransaction().replace(R.id.frameLayout,userComplainRegisterFragment).commit();
-        }
-        else if(fragment.equals("projectList")){ // 프로젝트 프래그먼트
-            fragmentManager.beginTransaction().replace(R.id.frameLayout,projectListFragment).commit();
-        }
-        else if(fragment.equals("listTeam")){
-            fragmentManager.beginTransaction().replace(R.id.frameLayout, listTeamFragment).commit();
-        }
-
-    }
-}*/
